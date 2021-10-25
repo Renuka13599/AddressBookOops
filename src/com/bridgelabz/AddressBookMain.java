@@ -1,4 +1,10 @@
 package com.bridgelabz;
+/**This AddressBook program simply stores the contacts and their information
+ * @author Renu
+ * @Date : 25-10-2021
+ */
+
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
