@@ -43,6 +43,17 @@ public class AddressBookMain {
             }
         }
     }
+    public static void deleteContact() {
+        System.out.println("Enter first name : ");
+        String firstName = sc.nextLine();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                list.remove(i);
+            } else {
+                System.out.println("No data found");
+            }
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -55,6 +66,10 @@ public class AddressBookMain {
         addContact();
         //Editing Contact
         editContact();
+        //deleting contact
+        deleteContact();
+        System.out.println(list); //printing list
+
     }
 }
 
