@@ -9,8 +9,7 @@ public class AddressBookMain {
     static List<AddContact> list = new LinkedList<AddContact>();
 
     //Created method for adding contact
-    public static void addContact()
-    {
+    public static void addContact() {
         System.out.println("Enter your firstName : ");
         String firstName = sc.nextLine();
         System.out.println("Enter your lastName : ");
@@ -27,8 +26,22 @@ public class AddressBookMain {
         long phoneNo = sc.nextLong();
         System.out.println("Enter your emailId : ");
         String email = sc.nextLine();
-       AddContact obj = new AddContact(firstName, lastName, address, city, state, zip, phoneNo, email);
+        AddContact obj = new AddContact(firstName, lastName, address, city, state, zip, phoneNo, email);
         list.add(obj);
+    }
+
+    public static void editContact() {
+        //Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first name: ");
+        String firstName = sc.nextLine();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                list.remove(i);
+                addContact();
+            } else {
+                System.out.println("No data found in Address Book");
+            }
+        }
     }
 
 
@@ -39,15 +52,9 @@ public class AddressBookMain {
         System.out.println("WELCOME TO ADDRESS BOOK PROBLEM");
         //Adding new contact
         System.out.println("Enter details of new contact");
-
-        //Creating contact and adding new contact details to the list
-        int count = 1;
-        while (count == 1) {
-            addContact();
-            count--;
-        }
-
-        System.out.println(list); //printing list
+        addContact();
+        //Editing Contact
+        editContact();
     }
 }
 
